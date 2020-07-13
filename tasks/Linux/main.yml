@@ -3,40 +3,25 @@
 
 - import_tasks: proxy.yml
 
-- name: Populate service facts
-  service_facts:
-
-- debug:
-    var: ansible_facts.services
-
-- debug:
-    var: ansible_facts.services['firewalld']
-
 - name: Gather package facts
   package_facts:
     manager: auto
-
-- debug:
-    var: ansible_facts.packages
-
-- name: Check whether a package called foobar is installed
-  debug:
-    msg: "112"
-  when: "'foobar' in ansible_facts.packages"
 
 - name: Stop and disable firewalld
   service:
     name: firewalld
     state: stopped
     enabled: no
-  become: true
-
-- name: Disable selinux at next reboot
-  selinux:
-    state: disabled
+  when: "'firewalld' in ansible_facts.packages"
   become: true
 
 - name: Set selinux in permissive mode until the machine is rebooted
   shell: setenforce 0 || true
   changed_when: false
+  when: "'selinux' in ansible_facts.packages"
+  become: true
+
+- name: Disable selinux at next reboot
+  selinux:
+    state: disabled
   become: true
