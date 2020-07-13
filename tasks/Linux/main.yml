@@ -12,6 +12,18 @@
 - debug:
     var: ansible_facts.services['firewalld']
 
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
+- debug:
+    var: ansible_facts.packages
+
+- name: Check whether a package called foobar is installed
+  debug:
+    msg: "112"
+  when: "'foobar' in ansible_facts.packages"
+
 - name: Stop and disable firewalld
   service:
     name: firewalld
