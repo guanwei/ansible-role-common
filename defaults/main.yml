@@ -23,3 +23,5 @@ hosts_entries: []
 #   - server2
 #   - <-loopback>
 #   - <local>
+
+disable_selinux: true
