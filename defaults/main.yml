@@ -25,3 +25,4 @@ hosts_entries: []
 #   - <local>
 
 disable_selinux: true
+disable_firewalld: true
