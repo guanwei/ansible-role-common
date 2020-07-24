@@ -14,6 +14,7 @@ hosts_entries: []
 # https_proxy: http://px01.example.com:3128
 # ftp_proxy: http://proxy.example.com:8080
 # no_proxy: example.com,192.168.122.1
+default_no_proxy: 127.0.0.1,localhost,.local,.internal
 # yum_proxy: http://proxysrv:8080
 # yum_proxy_username: myuser
 # yum_proxy_password: mypassword
