@@ -16,7 +16,7 @@ export FTP_PROXY="{{ ftp_proxy }}"
 {% if no_proxy is defined %}
 export no_proxy="{{ no_proxy }}"
 export NO_PROXY="{{ no_proxy }}"
-{% elif http_proxy is defined or https_proxy is defined or ftp_proxy is defined %}
+{% elif (http_proxy is defined) or (https_proxy is defined) or (ftp_proxy is defined) %}
 export no_proxy="{{ default_no_proxy }}"
 export NO_PROXY="{{ default_no_proxy }}"
 {% endif %}
