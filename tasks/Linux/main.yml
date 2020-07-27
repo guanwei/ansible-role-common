@@ -7,7 +7,8 @@
   package_facts:
     manager: auto
 
-- import_tasks: disable-selinux.yml
+- name: Disable SELinux
+  include_tasks: disable-selinux.yml
   when:
     - disable_selinux | bool
     - "'selinux' in ansible_facts.packages"
