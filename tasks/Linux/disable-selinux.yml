@@ -1,0 +1,16 @@
+- name: Install the libselinux-python package
+  package:
+    name: "{{ libselinux_package }}"
+    state: present
+  become: true
+
+- name: Disable selinux at next reboot
+  selinux:
+    state: disabled
+  become: true
+
+- name: Set selinux in permissive mode until the machine is rebooted
+  shell: setenforce 0 || true
+  ignore_errors: true
+  changed_when: false
+  become: true
