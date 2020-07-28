@@ -48,6 +48,8 @@ disable_firewalld: false
 `http_proxy`、`https_proxy`、`ftp_proxy`、`no_proxy` will be added to `/etc/environment` and `/etc/profile.d/proxy.sh` file on Linux.
 `http_proxy`、`https_proxy`、`ftp_proxy`、`no_proxy` will be added to `Machine Environment` on Windows.
 
+if one of `http_proxy`、`https_proxy`、`ftp_proxy` set, but `no_proxy` not set,`default_no_proxy` will be used as `no_proxy`.
+
 `http_proxy`、`https_proxy`、`ftp_proxy` will be added to `/etc/apt/apt.conf.d/01proxy` file on Debian/Ubuntu.
 `yum_proxy`、`yum_proxy_username`、`yum_proxy_password` will be added to `/etc/yum.conf` file on RedHat/CentOS.
 
