@@ -1,3 +1,4 @@
+---
 - name: Install the libselinux-python package
   package:
     name: "{{ libselinux_package }}"
