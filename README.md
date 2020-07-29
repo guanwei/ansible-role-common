@@ -64,7 +64,7 @@ None.
 requirements.yml
 ```
 - name: common
-  src: https://github.com/guanwei/ansible-role-common.git
+  src: ssh://tfsemea1.ta.philips.com:22/tfs/TPC_Region27/CDI_PT/_git/ansible-role-common
   version: dev
   scm: git
 ```
